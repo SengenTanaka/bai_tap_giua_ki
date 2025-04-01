@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="robot_giua_ki">
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0.129903810567668 0.0749999999999997 0.0270932977125576" rpy="0 0 0" />
+      <mass value="8.0" />
+      <inertia ixx="0.0258447207222559" ixy="2.887196504011E-17" ixz="1.403957110074E-17" iyy="0.0258447207222559" iyz="6.63778493939643E-18" izz="0.04641109346427" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_giua_ki/meshes/base_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.647058823529412 0.619607843137255 0.588235294117647 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_giua_ki/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="lidar">
+    <inertial>
+      <origin xyz="0.02 6.41847686111419E-17 -1.73472347597681E-18" rpy="0 0 0" />
+      <mass value="0.2" />
+      <inertia ixx="0.000208333333333333" ixy="5.03546777204473E-19" ixz="1.56637097196105E-22" iyy="6.83333333333334E-05" iyz="6.49708151861918E-21" izz="0.000193333333333333" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_giua_ki/meshes/lidar.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_giua_ki/meshes/lidar.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="lidar_joint" type="fixed">
+    <origin xyz="0.299807621135335 0.0712773119471236 0.055" rpy="3.14159265358979 0 3.14159265358979" />
+    <parent link="base_link" />
+    <child link="lidar" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="gps">
+    <inertial>
+      <origin xyz="-0.0099999999999999 -0.0173205080756889 0" rpy="0 0 0" />
+      <mass value="0.064" />
+      <inertia ixx="1.70666666666667E-05" ixy="-1.03397576569128E-22" ixz="1.26829392577992E-21" iyy="1.70666666666667E-05" iyz="-1.55254875478038E-22" izz="1.70666666666667E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_giua_ki/meshes/gps.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_giua_ki/meshes/gps.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="gps_joint" type="fixed">
+    <origin xyz="0.0449042894945412 0.222113525162613 0.0600000000000001" rpy="3.14159265358979 0 3.14159265358979" />
+    <parent link="base_link" />
+    <child link="gps" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="omni_1">
+    <inertial>
+      <origin xyz="0.0075000000000012 -0.0129903810567663 1.69309011255336E-15" rpy="0 0 0" />
+      <mass value="0.208733977688543" />
+      <inertia ixx="6.59898939608469E-05" ixy="-1.46534832472991E-05" ixz="-1.74485478411936E-19" iyy="8.29102789556346E-05" iyz="5.76409229329002E-19" izz="5.75297014634531E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_giua_ki/meshes/omni_1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_giua_ki/meshes/omni_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="omni_1_joint" type="continuous">
+    <origin xyz="0.214855715851501 0.222141016151378 0.0225" rpy="3.14159265358979 0 3.14159265358979" />
+    <parent link="base_link" />
+    <child link="omni_1" />
+    <axis xyz="0.500000000000001 -0.866025403784438 0" />
+  </joint>
+  <link name="omni_2">
+    <inertial>
+      <origin xyz="0.00750000000000212 0.0129903810567651 6.17561557447743E-16" rpy="0 0 0" />
+      <mass value="0.208733977688543" />
+      <inertia ixx="6.59898939608472E-05" ixy="1.46534832472992E-05" ixz="1.93863838622215E-19" iyy="8.29102789556345E-05" iyz="4.26515003347655E-19" izz="5.75297014634533E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_giua_ki/meshes/omni_2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_giua_ki/meshes/omni_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="omni_2_joint" type="continuous">
+    <origin xyz="0.2148557158515 -0.0721410161513798 0.0224999999999992" rpy="3.14159265358979 0 3.14159265358979" />
+    <parent link="base_link" />
+    <child link="omni_2" />
+    <axis xyz="0.499999999999995 0.866025403784442 0" />
+  </joint>
+  <link name="omni_3">
+    <inertial>
+      <origin xyz="-0.0149999999999986 -1.03476255342017E-15 -3.81639164714898E-16" rpy="0 0 0" />
+      <mass value="0.208733977688544" />
+      <inertia ixx="9.13704714530289E-05" ixy="-4.89821367467156E-20" ixz="-3.91156779464444E-19" iyy="5.75297014634538E-05" iyz="-1.76685778841327E-21" izz="5.75297014634537E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_giua_ki/meshes/omni_3.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_giua_ki/meshes/omni_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="omni_3_joint" type="continuous">
+    <origin xyz="-0.0399999999999992 0.075000000000003 0.0224999999999998" rpy="3.14159265358979 0 3.14159265358979" />
+    <parent link="base_link" />
+    <child link="omni_3" />
+    <axis xyz="-1 0 0" />
+  </joint>
+  <link name="cover">
+    <inertial>
+      <origin xyz="-1.46410661372443E-15 7.1730815731641E-16 0.0020000000000005" rpy="0 0 0" />
+      <mass value="2.2681122370942" />
+      <inertia ixx="0.0134967660959291" ixy="-4.53351516696916E-17" ixz="1.12538519924289E-18" iyy="0.0134967660959296" iyz="-2.22480767533846E-18" izz="0.026952981665401" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_giua_ki/meshes/cover.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.647058823529412 0.619607843137255 0.588235294117647 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_giua_ki/meshes/cover.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="cover_joint" type="fixed">
+    <origin xyz="0.129903810567662 0.0749999999999939 0.0839999999999991" rpy="3.14159265358979 0 3.14159265358979" />
+    <parent link="base_link" />
+    <child link="cover" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="part_1">
+    <inertial>
+      <origin xyz="0.0482497027294832 0.023818397092888 -0.0791522181889356" rpy="0 0 0" />
+      <mass value="0.5" />
+      <inertia ixx="0.0133979236376902" ixy="-0.00449290071182854" ixz="0.00756296397167591" iyy="0.020021289311462" iyz="0.00378435160377516" izz="0.0153316672251995" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_giua_ki/meshes/part_1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_giua_ki/meshes/part_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="part_1_joint" type="continuous">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="cover" />
+    <child link="part_1" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="part_2">
+    <inertial>
+      <origin xyz="0.0292458953416969 -0.0145511531922431 -0.116439924114356" rpy="0 0 0" />
+      <mass value="0.2" />
+      <inertia ixx="0.0117771528786844" ixy="-0.000203932658126824" ixz="0.00164444589160438" iyy="0.0120712247911824" iyz="0.000823263798463536" izz="0.000738512080665884" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_giua_ki/meshes/part_2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.686274509803922 0.607843137254902 0.529411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_giua_ki/meshes/part_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="part_2_joint" type="revolute">
+    <origin xyz="0.103632634514604 0.124917080751846 -0.159999999999999" rpy="0 0 0" />
+    <parent link="part_1" />
+    <child link="part_2" />
+    <axis xyz="0.467367855028524 -0.884062943509135 0" />
+    <limit lower="-1.57" upper="1.57" effort="10" velocity="1" />
+  </joint>
+  <link name="part_3">
+    <inertial>
+      <origin xyz="0.100191636008583 0.0894075603169047 0.0774484945955882" rpy="0 0 0" />
+      <mass value="0.2" />
+      <inertia ixx="0.00768759284894696" ixy="-0.0050590989736399" ixz="-0.00560651201979539" iyy="0.0126503410778878" iyz="-0.00350049610218649" izz="0.011771041029143" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_giua_ki/meshes/part_3.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.686274509803922 0.607843137254902 0.529411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_giua_ki/meshes/part_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="part_3_joint" type="revolute">
+    <origin xyz="0.0820900774167607 -0.0516181986063883 -0.296062123147055" rpy="0 0 0" />
+    <parent link="part_2" />
+    <child link="part_3" />
+    <axis xyz="0.467367855028522 -0.884062943509136 0" />
+    <limit lower="-1.57" upper="1.57" effort="10" velocity="1" />
+  </joint>
+  <link name="camera">
+    <inertial>
+      <origin xyz="0.00233683927514272 -0.00442031471754573 -5.55111512312578E-17" rpy="0 0 0" />
+      <mass value="0.000785398163397446" />
+      <inertia ixx="1.10963135271228E-08" ixy="6.76068450955425E-10" ixz="9.94242979616765E-25" iyy="1.0174886731558E-08" iyz="-1.42850375477502E-24" izz="1.14537232162127E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_giua_ki/meshes/camera.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_giua_ki/meshes/camera.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="camera_joint" type="fixed">
+    <origin xyz="0.18408219437092 0.203643984462763 0.153228174001123" rpy="0 0 0" />
+    <parent link="part_3" />
+    <child link="camera" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <!-- Thêm Gazebo ROS Control plugin -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/robot_giua_ki</robotNamespace>
+    </plugin>
+  </gazebo>
+
+  <!-- Định nghĩa các khớp trong Gazebo để sử dụng position controllers -->
+  <gazebo reference="part_1_joint">
+    <kp>1000.0</kp>
+    <kd>10.0</kd>
+  </gazebo>
+  <gazebo reference="part_2_joint">
+    <kp>1000.0</kp>
+    <kd>10.0</kd>
+  </gazebo>
+  <gazebo reference="part_3_joint">
+    <kp>1000.0</kp>
+    <kd>10.0</kd>
+  </gazebo>
+
+  <!-- Plugin Gazebo cho LiDAR -->
+  <gazebo reference="lidar">
+    <sensor name="lidar_sensor" type="ray">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>10</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>360</samples>
+            <resolution>1</resolution>
+            <min_angle>-3.14159</min_angle>
+            <max_angle>3.14159</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.1</min>
+          <max>10.0</max>
+          <resolution>0.01</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="lidar_controller" filename="libgazebo_ros_laser.so">
+        <topicName>/robot_giua_ki/lidar/scan</topicName>
+        <frameName>lidar</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <!-- Plugin Gazebo cho Camera -->
+  <gazebo reference="camera">
+    <sensor name="camera_sensor" type="camera">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>10</update_rate>
+      <camera>
+        <horizontal_fov>1.0472</horizontal_fov> <!-- Góc nhìn ngang (khoảng 60 độ) -->
+        <image>
+          <width>640</width>
+          <height>480</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.1</near>
+          <far>100.0</far>
+        </clip>
+      </camera>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>10</updateRate>
+        <cameraName>camera1</cameraName>
+        <imageTopicName>/robot_giua_ki/camera/image_raw</imageTopicName>
+        <cameraInfoTopicName>/robot_giua_ki/camera/camera_info</cameraInfoTopicName>
+        <frameName>camera</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <!-- Plugin Gazebo cho GPS -->
+  <gazebo reference="gps">
+    <sensor name="gps_sensor" type="gps">
+      <pose>0 0 0 0 0 0</pose>
+      <update_rate>10</update_rate>
+      <gps>
+        <referenceLatitude>37.7749</referenceLatitude> <!-- Vĩ độ tham chiếu (ví dụ: San Francisco) -->
+        <referenceLongitude>-122.4194</referenceLongitude> <!-- Kinh độ tham chiếu -->
+        <referenceAltitude>0.0</referenceAltitude> <!-- Độ cao tham chiếu -->
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev> <!-- Độ lệch chuẩn của nhiễu (0.01 m) -->
+        </noise>
+      </gps>
+      <plugin name="gps_controller" filename="libgazebo_ros_gps.so">
+        <topicName>/robot_giua_ki/gps/fix</topicName>
+        <frameName>gps</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <!-- Transmission cho part_1_joint -->
+  <transmission name="part_1_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="part_1_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="part_1_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- Transmission cho part_2_joint -->
+  <transmission name="part_2_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="part_2_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="part_2_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- Transmission cho part_3_joint -->
+  <transmission name="part_3_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="part_3_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="part_3_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+</robot>

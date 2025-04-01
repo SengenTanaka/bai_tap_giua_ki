@@ -1,0 +1,26 @@
+<launch>
+  <!-- Khởi chạy Gazebo -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="world_name" value="$(find robot_giua_ki)/worlds/empty.world"/>
+  </include>
+
+  <!-- Tải mô hình robot từ file URDF -->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find robot_giua_ki)/urdf/robot_giua_ki.urdf'"/>
+
+  <!-- Spawn robot vào Gazebo -->
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-urdf -model robot_giua_ki -x 0 -y 0 -z 0.1 -param robot_description"/>
+
+  <!-- Load controller configuration -->
+  <rosparam file="$(find robot_giua_ki)/config/arm_controllers.yaml" command="load"/>
+
+  <!-- Start the controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/robot_giua_ki" args="part_1_joint_position_controller part_2_joint_position_controller part_3_joint_position_controller"/>
+
+  <!-- Khởi động node để publish joint states -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="use_gui" value="false"/>
+  </node>
+</launch>
